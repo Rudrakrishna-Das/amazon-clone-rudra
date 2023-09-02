@@ -4,7 +4,11 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/outline";
 
+import { signIn, signOut, useSession } from "next-auth/react";
+
 const Navigation = () => {
+  const { data: session, status } = useSession();
+  console.log(session);
   return (
     <nav>
       {/* TOP NAV */}
@@ -28,7 +32,7 @@ const Navigation = () => {
 
         {/* DETAILS */}
         <div className="text-white flex items-center mx-2 text-xs space-x-6">
-          <div className="link">
+          <div onClick={signIn} className="link">
             <p>Hello Rudra</p>
             <p className="font-extrabold md:text-sm">Accounts & Lists</p>
           </div>
