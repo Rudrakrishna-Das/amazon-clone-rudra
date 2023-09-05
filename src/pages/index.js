@@ -10,7 +10,7 @@ export default function Home({ products }) {
         <title>Amazon 2.0</title>
       </Head>
       <Navigation />
-      <main className="max-w-screen-xl mx-auto">
+      <main className="max-w-screen-xl mx-auto pt-32">
         {/* BANNER */}
         <Banner />
         {/* PRODUCTS */}

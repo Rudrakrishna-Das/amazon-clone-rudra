@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 
+import { useDispatch } from "react-redux";
+
+import { addToCart } from "@/slices/cartSlice";
+
 import { StarIcon } from "@heroicons/react/24/solid";
 
 const Products = ({ id, title, price, description, category, image }) => {
   const [rating, setRating] = useState();
   const [hasPrime, setHasPrime] = useState();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setRating(Math.trunc(Math.random() * 5) + 1);
@@ -25,6 +31,21 @@ const Products = ({ id, title, price, description, category, image }) => {
         suppressHydrationWarning
       />
     ));
+
+  const addItemsToCart = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating,
+      hasPrime,
+    };
+
+    dispatch(addToCart(product));
+  };
   return (
     <div className="bg-white flex flex-col m-5 p-4 z-30">
       <p className="text-right text-xs italic text-gray-400">{category}</p>
@@ -43,7 +64,9 @@ const Products = ({ id, title, price, description, category, image }) => {
           <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
         </div>
       )}
-      <button className="mt-auto button">Add To Basket</button>
+      <button onClick={addItemsToCart} className="mt-auto button">
+        Add To Cart
+      </button>
     </div>
   );
 };

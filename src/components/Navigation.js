@@ -1,21 +1,30 @@
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { totalItems } from "@/slices/cartSlice";
+
 import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
 
-import { signIn, signOut, useSession } from "next-auth/react";
-
 const Navigation = () => {
+  const router = useRouter();
   const { data: session, status } = useSession();
-  console.log(session);
+
+  const items = useSelector(totalItems);
+
   return (
-    <nav>
+    <nav className="fixed z-50 min-w-full">
       {/* TOP NAV */}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         {/* AMAZON_LOGO */}
         <div className="flex flex-grow pt-2 sm:flex-grow-0 ">
           <img
+            onClick={() => {
+              router.push("/");
+            }}
             src="https://links.papareact.com/f90"
             alt="amazon"
             className="cursor-pointer w-36 h-12 object-contain"
@@ -32,17 +41,22 @@ const Navigation = () => {
 
         {/* DETAILS */}
         <div className="text-white flex items-center mx-2 text-xs space-x-6">
-          <div onClick={signIn} className="link">
-            <p>Hello Rudra</p>
+          <div onClick={!session ? signIn : signOut} className="link">
+            <p>{session ? `Hello ${session.user.name}` : "Sign in"}</p>
             <p className="font-extrabold md:text-sm">Accounts & Lists</p>
           </div>
           <div className="link">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
-          <div className="relative link flex items-center">
+          <div
+            onClick={() => {
+              router.push("/cart");
+            }}
+            className="relative link flex items-center"
+          >
             <span className="absolute top-0 right-0 md:right-7 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-extrabold">
-              0
+              {items}
             </span>
             <ShoppingCartIcon className="h-8" />
             <p className="hidden md:inline md:text-sm font-extrabold  items-center mt-2">
