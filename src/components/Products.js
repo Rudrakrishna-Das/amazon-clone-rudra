@@ -54,7 +54,7 @@ const Products = ({ id, title, price, description, category, image }) => {
       <div className="flex">{starRating}</div>
       <p className="text-xs my-2 line-clamp-2">{description}</p>
       <div className="mb-5">{currencyIND.format(price)}</div>
-      {hasPrime && ( // Error Reason 2
+      {hasPrime && (
         <div className="flex items-center space-x-2 -mt-5">
           <img
             className="w-12"
@@ -64,7 +64,7 @@ const Products = ({ id, title, price, description, category, image }) => {
           <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
         </div>
       )}
-      <button onClick={addItemsToCart} className="mt-auto button">
+      <button onClick={addItemsToCart} className="mt-auto button hover:to-yellow-500">
         Add To Cart
       </button>
     </div>
