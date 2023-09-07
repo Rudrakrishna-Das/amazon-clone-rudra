@@ -47,22 +47,30 @@ const Cart = () => {
               <ul>
                 {items.map((item) => (
                   <li
-                    className="flex justify-between list-none mb-3"
+                    className="flex flex-col justify-between list-none mb-3 text-left"
                     key={item.id}
                   >
-                    <p className="text-xs">{item.title}</p>
-                    <p>{currencyIND.format(item.quantity * item.price)}</p>
+                    <div className="flex text-xs text-left mr-2 mt-1">
+                      <p>{item.title}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <p className="text-sm">
+                        ({item.quantity} X {currencyIND.format(item.price)})
+                      </p>
+                      <p>{currencyIND.format(item.quantity * item.price)}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
 
               <hr />
 
-              <div className="flex justify-between mt-1">
+              <div className="flex justify-between mt-1 text-left">
                 <p>Total Price</p>
                 <p>{currencyIND.format(totalPrice)}</p>
               </div>
               <button
+                disabled={!session}
                 className={`button mt-2 ${session && "hover:to-yellow-500"} ${
                   !session &&
                   "from-gray-300 to-gray-500 border-gray-200 text-gray-300 hover: cursor-not-allowed"
