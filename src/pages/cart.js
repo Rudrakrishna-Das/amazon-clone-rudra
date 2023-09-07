@@ -42,7 +42,7 @@ const Cart = () => {
         </div>
         {/* RIGHT SIODE */}
         {items.length > 0 && (
-          <div className={"w-12/12 mx-5 bg-white p-4 text-right lg:w-full"}>
+          <div className={"w-10/12 m-5 bg-white p-4 text-right lg:w-full"}>
             <>
               <ul>
                 {items.map((item) => (
