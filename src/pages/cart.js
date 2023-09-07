@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <section className="bg-gray-300">
       <Navigation />
-      <main className="lg:flex max w-screen-xl mx-auto pt-28">
+      <main className="lg:flex max w-screen-xl mx-auto py-28 pb-1 lg:pt-28">
         {/* LEFT SIDE */}
         <div className="flex-grow m-5 shadow-sm">
           <img
@@ -42,7 +42,7 @@ const Cart = () => {
         </div>
         {/* RIGHT SIODE */}
         {items.length > 0 && (
-          <div className={"w-10/12 m-5 bg-white p-4 text-right lg:w-full"}>
+          <div className={"m-5  bg-white p-4 text-right lg:w-10/12"}>
             <>
               <ul>
                 {items.map((item) => (
