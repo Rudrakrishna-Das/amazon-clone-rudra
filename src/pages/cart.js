@@ -3,6 +3,10 @@ import { selectItems, totalCartValue } from "@/slices/cartSlice";
 import Navigation from "../components/Navigation";
 import CartItems from "../components/CartItems";
 import { useSession } from "next-auth/react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+const stripePromise = loadStripe(process.env.stripe_public_key);
 
 const Cart = () => {
   const items = useSelector(selectItems);
@@ -13,12 +17,22 @@ const Cart = () => {
     style: "currency",
     currency: "INR",
   });
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+
+    // Call the backend to create checkout session...
+
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: items,
+      email: session.user.email,
+    });
+  };
   return (
     <section className="bg-gray-300">
       <Navigation />
       <main className="lg:flex max w-screen-xl mx-auto py-28 pb-1 lg:pt-28">
         {/* LEFT SIDE */}
-        <div className="flex-grow m-5 shadow-sm">
+        <div className="lg:w-full m-5 shadow-sm">
           <img
             src="https://theminimillionaire.com/wp-content/uploads/2019/12/us_evergreen_gw_dt_hero_1500x300_en-1440x288.jpg.webp"
             width={1020}
@@ -42,7 +56,7 @@ const Cart = () => {
         </div>
         {/* RIGHT SIODE */}
         {items.length > 0 && (
-          <div className={"m-5  bg-white p-4 text-right lg:w-10/12"}>
+          <div className={"m-5  bg-white p-4 text-right lg:w-6/12"}>
             <>
               <ul>
                 {items.map((item) => (
@@ -70,6 +84,8 @@ const Cart = () => {
                 <p>{currencyIND.format(totalPrice)}</p>
               </div>
               <button
+                onClick={createCheckoutSession}
+                role="link"
                 disabled={!session}
                 className={`button mt-2 ${session && "hover:to-yellow-500"} ${
                   !session &&
