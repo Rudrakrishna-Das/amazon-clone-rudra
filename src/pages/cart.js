@@ -26,6 +26,39 @@ const Cart = () => {
       items: items,
       email: session.user.email,
     });
+
+    // Redirect user to the stripe checkout page
+    const result = stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) alert(result.error.message);
+    const fulfilOrder = async (session) => {
+      const productDetails = {
+        amount: session.amount_total / 100,
+        amount_shipping: session.total_details.amount_shipping / 100,
+        image: JSON.parse(session.metadata.images),
+        timestamp: new Date(),
+      };
+
+      const response = await fetch(
+        `https://food-delivery-app-5df87-default-rtdb.firebaseio.com/orders/${session.id}.json`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            [session.metadata.email]: productDetails,
+          }),
+          headers: {
+            "Content-Type": "aplication/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        alert("Something went wrong! Please try Again!");
+      }
+      console.log("success");
+      return "Success";
+    };
   };
   return (
     <section className="bg-gray-300">

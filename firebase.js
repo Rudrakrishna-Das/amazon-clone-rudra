@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBRzSxHwFxFRucDFV2_P2_NDh0SKwrt93I",
   authDomain: "amzn-clone-rudra.firebaseapp.com",
@@ -7,3 +9,11 @@ const firebaseConfig = {
   appId: "1:129532685486:web:cca74edba689a1bb4ed13f",
   measurementId: "G-BMHW4PYNG2",
 };
+
+const app = !firebase.apps.length
+  ? firebase.initializeApp(firebaseConfig)
+  : firebase.app();
+
+const db = app.firestore();
+
+export default db;

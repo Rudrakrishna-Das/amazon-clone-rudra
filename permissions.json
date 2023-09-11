@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "amzn-clone-rudra",
+  "private_key_id": "b775e4986333c3dccdea65f555338509a405dae6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCjsevgoDXWbBWO\ngDWtpDlAxW27ED4RkHTM0NowPAelOawYqlm4uUGtA9EtW4+iZvNFKlZi7ZLydRBf\nft93+QZ33LpxmFxrbc/V48J9HxFJJwURMfVGGUNm15iGRxTNAc0IdJBufN/zpO25\nCwDRDTB3p+MbS6biZAkFJkWwYWZKFex1GGSfauSYH4ks0Fumtvc7pONNgDCwBvlv\ndEaQ0FyZH0F32Fx3IcG+AUIXmQ44f/zrAeQr21bscDLSGwg72XmoNYqjocnNvvzX\n1/E4DzWT3oba2NbVfQIVNABgrhJz30sqf/g63l47TEMgwJ7BglEDMjThCYPXT9z1\nfn3THeoNAgMBAAECggEAEx83Rlp7ZNyOuW0WrX26m8C0Vx7IRrWmP0AXzNH7s/xZ\nsy6VzoitjbAddlFKJRbQ93/A7vYrrUZULvjw0otKNc7uD1OqBXlNcayVIpfyJVEj\n5rn8RJUHlPLobqnNBJRfnCDpt6O/ZtnEVKe0D7edCs1CMAUVWJWGTDiypAOstvNK\nfPOsl095grasZ37js+iK8R34bHOXvavTGdVY1ku3RKlDk5h9oEPGSQXQUhSueR0g\nQ53ZNVsY14fku1Ltqwczz9Oymm6eY1sRoJsXOv8FZjBbYeLCK9zc8NPWsb52blyN\n9nSOT8lm916fs1xnNC3cvLJHVkqSCe1S3rvPDP+pDQKBgQDnceh/EqP7evcLuESR\noLzyXuQrxtEIrkZP4y0n37jplzSvWrJCdBhv3COgcyDku9WBgZgRx+Wy0CyOrFWI\n6bNo6hAXiS5Wyj5ULyrWh7gtdXy/WPNn55p7DAWNL4oxTQnxG9tH6R7tai1dHip8\nn7ICBgcyTLxaFlF4PcZqbecHtwKBgQC1D+kwGQTm4NmO6oKQfgP0mZOC3g99CLvP\nYRTiABFd4i/ZWB9RMeHxhF2/hLaQQ43NAyFGjTxWE1hDs43jWbL74Cuh9WSQS9Pe\nEoKCEaxd300jq0oSj3CmqFCyVtq7FNUYgTYUUyO44tty9+TAoxlSCRgayAvVgPIE\nO3VQ3Ps0WwKBgArA4yGMVywnEXVs8Vqm0kCcohNaoHm7xy6NCpsQrQHFccA4AZJO\n3JfN7aXV05BtHcVvpQYmeIivXXKflTXQTfKw9WBykkGcEftNWbswASGzlME7O8v3\nGdlfvJ5LuCsEPlMCjVSxAyvaxBLQhP7XWKj5aLowkIvK/6wLir2FL7fPAoGAUvZo\nZbaBDX0nkpmXm7dx/ojEE2nGdQckbyBPnkJjsr3qKM99Ago2OiDph9C6ih26Ap8V\nhys94z7X6aWDNRIrtceAlqRHIOrtuEqI7CpG7Xhc8yQQO7Ln7iUfXKf5b1FbVvAV\npHh33MZtwR8e/Ll+55ztI5BYA8simZfY6GVo4RMCgYEAwJlp9+35PWjM3gi/l6aP\nPIFPwIFyHMjhPQCvm66tWhM7GPuV2yZ5/xL5kMBEtx7ntr1bdi/PCp9fPvUKUKSo\ncReUt2SA8DzFmyjYpnmSN2G9/ScuOSaWsoqGbVoR+1XjWDjKDtdZC7lppt083FNJ\neMiD64iDP/ftDLh3H+M9/8E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-nv3fb@amzn-clone-rudra.iam.gserviceaccount.com",
+  "client_id": "114611443769084988535",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-nv3fb%40amzn-clone-rudra.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
