@@ -7,41 +7,44 @@ import Order from "@/components/Order";
 
 const Orders = ({ orders }) => {
   const { data: session, status } = useSession();
-  console.log(orders);
-  let totalOreder;
+  let totalOrders = orders
+    .flatMap((order) => order.items)
+    .reduce((total, order) => (total += order.quantity), 0);
   return (
-    <section className="bg-gray-300">
+    <>
       <Navigation />
-      <main className="max-w-screen-lg mx-auto relative top-32 left-8 rounded-md bg-white p-5 pl-7">
-        <h1 className="text-3xl border-b-yellow-400 border-b pb-1">
-          Your Orders
-        </h1>
-        {session ? (
-          <h2> x Orders</h2>
-        ) : (
-          <h2> Please signin to see your orders</h2>
-        )}
-        {session && orders.length === 0 ? (
-          <h2>No items in your ordered!</h2>
-        ) : (
-          <div>
-            {orders?.map(
-              ({ id, amount, amountShipping, images, items, timeStamp }) => {
-                console.log(items);
-                <Order
-                  id={id}
-                  amount={amount}
-                  amountShipping={amountShipping}
-                  images={images}
-                  items={items}
-                  timeStamp={timeStamp}
-                />;
-              }
-            )}
-          </div>
-        )}
-      </main>
-    </section>
+      <section className="bg-gray-300 relative top-28  py-5 ">
+        <main className="max-w-screen-lg mx-auto  rounded-md bg-white p-5 pl-7">
+          <h1 className="text-3xl border-b-yellow-400 border-b pb-1">
+            Your Orders
+          </h1>
+          {session ? (
+            <h2> {totalOrders} Orders</h2>
+          ) : (
+            <h2> Please signin to see your orders</h2>
+          )}
+          {session && orders.length === 0 ? (
+            <h2>No items you ordered!</h2>
+          ) : (
+            <div>
+              {orders?.map(
+                ({ id, amount, amountShipping, images, items, timeStamp }) => (
+                  <Order
+                    key={id}
+                    id={id}
+                    amount={amount}
+                    amountShipping={amountShipping}
+                    images={images}
+                    items={items}
+                    timeStamp={timeStamp}
+                  />
+                )
+              )}
+            </div>
+          )}
+        </main>
+      </section>
+    </>
   );
 };
 
@@ -85,6 +88,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       orders,
+      session,
     },
   };
 }
