@@ -9,6 +9,10 @@ export default function Home({ products }) {
     <div className="bg-gray-300">
       <Head>
         <title>Amazon 2.0</title>
+        <link
+          rel="shortcut icon"
+          href="https://static.vecteezy.com/system/resources/previews/004/999/463/non_2x/shopping-cart-icon-illustration-free-vector.jpg"
+        />
       </Head>
       <Navigation />
       <main className="max-w-screen-xl mx-auto pt-32">

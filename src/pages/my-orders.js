@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { getSession, useSession } from "next-auth/react";
 
 import Navigation from "@/components/Navigation";
@@ -12,6 +14,13 @@ const Orders = ({ orders }) => {
     .reduce((total, order) => (total += order.quantity), 0);
   return (
     <>
+      <Head>
+        <title>Orders</title>
+        <link
+          rel="shortcut icon"
+          href="https://static.vecteezy.com/system/resources/previews/004/999/463/non_2x/shopping-cart-icon-illustration-free-vector.jpg"
+        />
+      </Head>
       <Navigation />
       <section className="bg-gray-300 relative top-28  py-5 ">
         <main className="max-w-screen-lg mx-auto  rounded-md bg-white p-5 pl-7">
